@@ -11,5 +11,6 @@ public class State_MainMenu : ApplicationState
   {
     // load the main menu scene
     SceneManager.LoadSceneAsync( SCENE_NAME, LoadSceneMode.Single );
+        ApplicationStateManager.Instance.PushState(ApplicationStates.Options);
   }
 }
