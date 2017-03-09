@@ -7,7 +7,8 @@ public enum ApplicationStates
   Main,
   SplashScreen,
   MainMenu,
-  Options
+  Options,
+  Game
 }
 
 public class ApplicationStateManager : MonoSingleton<ApplicationStateManager>

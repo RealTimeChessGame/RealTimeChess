@@ -9,7 +9,7 @@ public class State_Options : ApplicationState {
 
     public override void OnStateEnter()
     {
-        // load the splash screen scene
-        SceneManager.LoadSceneAsync(SCENE_NAME, LoadSceneMode.Single);
+        // load the option screen scene
+        SceneManager.LoadSceneAsync(SCENE_NAME, LoadSceneMode.Additive);
     }
 }
