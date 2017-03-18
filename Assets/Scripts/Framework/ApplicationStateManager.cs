@@ -40,6 +40,7 @@ public class ApplicationStateManager : MonoSingleton<ApplicationStateManager>
   private void InitializeLookupTable()
   {
     // create an easy lookup table in a dictionary to link the state enum to the state object
+    // we loop throught the list of states and store them in a dictionary by their name
     for( int i =0; i < states.Count; ++i )
     {
       m_StateTable.Add(states[i].state, states[i]);

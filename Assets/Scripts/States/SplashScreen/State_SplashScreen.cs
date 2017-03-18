@@ -25,15 +25,27 @@ public class State_SplashScreen : ApplicationState
       yield return null;
     }
 
-    LoadMainMenu();
+    FadeOut();
   }
 
   private void LoadMainMenu()
   {
     //push the main menu state on
-    ApplicationStateManager.Instance.PushState(ApplicationStates.MainMenu);
+    ApplicationStateManager.Instance.PushState( ApplicationStates.MainMenu );
 
     // pop the splash screen off the stack
-    ApplicationStateManager.Instance.PopState(ApplicationStates.SplashScreen);
+    ApplicationStateManager.Instance.PopState( ApplicationStates.SplashScreen );
+  }
+
+  private void FadeOut()
+  {
+    // show the fade screen and wait until it calls the FadeCallback function when it completes
+    UIManager.Instance.SendCommand( UIManager.UICommand.Show, UIScreenNames.Fade, FadeCallback );
+  }
+
+  private void FadeCallback( UIScreen screen, UIManager.UICommand command)
+  {
+    // screen has finished fading out, load the main menu
+    LoadMainMenu();
   }
 }
