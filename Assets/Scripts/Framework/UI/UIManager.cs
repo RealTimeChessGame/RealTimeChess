@@ -63,14 +63,26 @@ public class UIManager : Singleton<UIManager>
     }
   }
 
+  public void RemoveScreen( UIScreenNames name )
+  {
+    if( m_Screens.ContainsKey(name) )
+    {
+      m_Screens.Remove(name);
+    }
+  }
+
   public void SendCommand( UICommand command, UIScreenNames name, CommandCallback callback = null )
   {
-    // use the name in the command to get a reference of the screen from our dictionary
-    UIScreen screen = m_Screens[ name ];
+    // check if the screen exists
+    if( m_Screens.ContainsKey(name) == true )
+    {
+      // use the name in the command to get a reference of the screen from our dictionary
+      UIScreen screen = m_Screens[name];
 
-    // create a new command object to be processed
-    CommandQueueItem screenCommand = new CommandQueueItem( name, command, screen, callback );
-    m_Commands.Add(screenCommand); 
+      // create a new command object to be processed
+      CommandQueueItem screenCommand = new CommandQueueItem(name, command, screen, callback);
+      m_Commands.Add(screenCommand);
+    }
   }
 
   public void OnUpdate()

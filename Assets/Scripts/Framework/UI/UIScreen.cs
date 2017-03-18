@@ -22,6 +22,11 @@ public class UIScreen : MonoBehaviour
     Initialize();
   }
 
+  private void OnDestroy()
+  {
+    UIManager.Instance.RemoveScreen(screenName);
+  }
+
   public void Show()
   {
     // call to the derived class to act on the show command

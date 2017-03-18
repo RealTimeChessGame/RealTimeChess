@@ -9,9 +9,8 @@ public class State_MainMenu : ApplicationState
 
   public override void OnStateEnter()
   {
+    // load the main menu scene and wait until it is complete
     StartCoroutine( LoadScene() );
-
-    ApplicationStateManager.Instance.PushState(ApplicationStates.Options);
   }
 
   IEnumerator LoadScene()
